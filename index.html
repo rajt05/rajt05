@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Thawani - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5282;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: transparent;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #2c5282;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+            font-weight: bold;
+        }
+
+        .section-underline {
+            width: 60px;
+            height: 4px;
+            background: #2c5282;
+            margin: 0 auto 3rem;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-icon {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .lightning-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff8c00, #ffd700);
+            clip-path: polygon(50% 0%, 80% 40%, 60% 40%, 70% 100%, 30% 60%, 50% 60%);
+        }
+
+        .about-title {
+            font-size: 2rem;
+            color: #2c5282;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .about-details {
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .career-objective {
+            margin-bottom: 2rem;
+        }
+
+        .career-objective strong {
+            color: #2c5282;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+        }
+
+        .info-item strong {
+            color: #2c5282;
+        }
+
+        /* Technical Expertise Section */
+        .tech-expertise {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .expertise-category {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: #2c5282;
+            font-weight: bold;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: #2c5282;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Specializations */
+        .specializations {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .spec-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff8c00, #ffd700);
+            clip-path: polygon(50% 0%, 80% 40%, 60% 40%, 70% 100%, 30% 60%, 50% 60%);
+            margin-right: 15px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+        }
+
+        .battery-icon {
+            background: linear-gradient(to bottom, #48bb78 0%, #38a169 50%, #38a169 100%);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .battery-icon::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 4px;
+            background: #48bb78;
+            border-radius: 2px;
+        }
+
+        .battery-icon::after {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: #2c5282;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: #e2e8f0;
+            color: #2c5282;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+        /* Sensor icons for projects */
+        .sensor-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4299e1, #63b3ed);
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto 1rem;
+        }
+
+        .sensor-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .plug-icon {
+            width: 60px;
+            height: 60px;
+            background: #8b4513;
+            border-radius: 10px 10px 50% 50%;
+            position: relative;
+            margin: 0 auto 1rem;
+        }
+
+        .plug-icon::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 15px;
+            background: #ff8c00;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .plug-icon::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 8px;
+            background: #333;
+            border-radius: 2px;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            color: #fff;
+        }
+
+        .achievements .section-title {
+            color: #fff;
+        }
+
+        .achievements .section-underline {
+            background: #ffd700;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .trophy-icon {
+            background: #ffd700;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+        }
+
+        .trophy-icon::before {
+            content: '';
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 8px;
+            background: #ffd700;
+        }
+
+        .medal-icon {
+            background: #4299e1;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .medal-icon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 15px;
+            background: #2c5282;
+        }
+
+        .star-icon {
+            background: #ffd700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .achievement-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-method {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .email-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .linkedin-icon {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+        }
+
+        .contact-method h3 {
+            font-size: 1.3rem;
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        .contact-method a:hover {
+            color: #2c5282;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-icon {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Icon styles */
+        .icon-circuit {
+            color: #ffd700;
+            font-size: 2rem;
+        }
+
+        .icon-chip {
+            color: #4299e1;
+            font-size: 2rem;
+        }
+
+        .icon-signal {
+            color: #8b4513;
+            font-size: 2rem;
+        }
+
+        .icon-email::before {
+            content: '@';
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .icon-briefcase::before {
+            content: '💼';
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Raj Thawani</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Raj Thawani</h1>
+            <p class="subtitle">Embedded Hardware Engineer</p>
+            <p>Passionate about PCB Design & Embedded Systems</p>
+            <a href="#projects" class="cta-button">Explore My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-underline"></div>
+            
+            <div class="about-content">
+                <div class="about-icon">
+                    <div class="lightning-icon"></div>
+                </div>
+                
+                <h3 class="about-title">Passionate Embedded Hardware Engineer</h3>
+                
+                <div class="about-details">
+                    <p class="about-text">
+                        I'm a dedicated <strong>Electrical Engineer</strong> graduated in 2025 from L.D College of Engineering. My passion lies in PCB designing and exploring cutting-edge technologies that shape the future of embedded systems.
+                    </p>
+                    
+                    <div class="career-objective">
+                        <p><strong>Career Objective:</strong> To leverage my expertise in embedded hardware design and PCB development to contribute to innovative electric vehicle technologies and sustainable energy solutions. I aim to work with forward-thinking organizations where I can apply my technical skills in circuit design, motor control systems, and power electronics while continuously learning and growing in the rapidly evolving field of embedded systems.</p>
+                    </div>
+                    
+                    <div class="about-info">
+                        <div class="info-item">
+                            <strong>Education:</strong> Electrical Engineering, L.D College of Engineering (2025)
+                        </div>
+                        <div class="info-item">
+                            <strong>Location:</strong> Ahmedabad, Gujarat
+                        </div>
+                        <div class="info-item">
+                            <strong>Interests:</strong> PCB Designing, Learning new technologies
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Expertise Section -->
+    <section class="tech-expertise" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="section-underline"></div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-category">
+                    <div class="category-header">
+                        <span class="icon-circuit">🔧</span>
+                        <h3 class="category-title">PCB Design Software</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Orcad Capture</span>
+                        <span class="tech-tag">Pads Layout</span>
+                        <span class="tech-tag">Mentor Graphics</span>
+                        <span class="tech-tag">KiCad</span>
+                    </div>
+                </div>
+
+                <div class="expertise-category">
+                    <div class="category-header">
+                        <span class="icon-chip">💻</span>
+                        <h3 class="category-title">Hardware Platforms</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">STM32 Controller</span>
+                        <span class="tech-tag">ESP32</span>
+                        <span class="tech-tag">NodeMCU</span>
+                    </div>
+                </div>
+
+                <div class="expertise-category">
+                    <div class="category-header">
+                        <span class="icon-signal">📡</span>
+                        <h3 class="category-title">Communication Protocols</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">CAN</span>
+                        <span class="tech-tag">SPI</span>
+                        <span class="tech-tag">I2C</span>
+                        <span class="tech-tag">UART</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="margin-top: 3rem;">
+                <div class="specializations">
+                    <div class="spec-header">
+                        <div class="spec-icon"></div>
+                        <h3 class="category-title">Specializations</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Motor Control</span>
+                        <span class="tech-tag">Power Electronics</span>
+                        <span class="tech-tag">Circuit Design</span>
+                        <span class="tech-tag">PWM Control</span>
+                        <span class="tech-tag">MOSFET Drivers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-underline"></div>
+
+            <!-- Project 1: DC Motor Driver System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="battery-icon project-icon"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">DC Motor Driver System</h3>
+                    <p class="project-description">
+                        Designed and implemented a sophisticated DC motor control system utilizing MOSFETs and 555 timer IC for precise speed regulation. Features a step-down chopper for optimal voltage management and a versatile three-pin switch for seamless analog/digital control transitions.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">MOSFET</span>
+                        <span class="project-tag">555 Timer</span>
+                        <span class="project-tag">PWM Control</span>
+                        <span class="project-tag">Step-down Chopper</span>
+                    </div>
+                    <div class="project-image-placeholder">
+                        Professional PCB Layout - Advanced multilayer design with precision component placement
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Power Theft Detection System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="sensor-icon project-icon"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Power Theft Detection System</h3>
+                    <p class="project-description">
+                        Developed an innovative solution for power theft detection using current transformers placed 5KM apart to measure line current differences. The system sends real-time alerts to government officials via NodeMCU when theft is detected, contributing to smart grid security.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">NodeMCU</span>
+                        <span class="project-tag">Current Transformer</span>
+                        <span class="project-tag">IoT</span>
+                        <span class="project-tag">Server Integration</span>
+                    </div>
+                    <div class="project-image-placeholder">
+                        Upload your power theft detection system images here
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Inverter & Battery Charging Circuit -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="plug-icon project-icon"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Inverter & Battery Charging Circuit</h3>
+                    <p class="project-description">
+                        Designed comprehensive schematic and layout for inverter circuit and battery charging system as part of Grand Challenge Contest 2024. Focused on efficient power conversion and battery management for sustainable energy applications.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Power Electronics</span>
+                        <span class="project-tag">Inverter Design</span>
+                        <span class="project-tag">Battery Management</span>
+                        <span class="project-tag">PCB Layout</span>
+                    </div>
+                    <div class="project-image-placeholder">
+                        Inverter PCB Design & Battery Charging Circuit - Upload your inverter and charging circuit images here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            <div class="section-underline"></div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <div class="trophy-icon achievement-icon"></div>
+                    <h3 class="achievement-title">Patent Holder</h3>
+                </div>
+                <p class="achievement-description">
+                    <strong>Power Theft Detection on Distribution Network</strong> - Secured patent for innovative power theft detection system using NodeMCU, Current Transducer, and Server Integration technologies.
+                </p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <div class="medal-icon achievement-icon"></div>
+                    <h3 class="achievement-title">Smart India Hackathon 2023 - Finalist</h3>
+                </div>
+                <p class="achievement-description">
+                    Reached the finals of one of India's largest hackathons, presenting our power theft detection solution to industry experts and government officials.
+                </p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <div class="star-icon achievement-icon"></div>
+                    <h3 class="achievement-title">Vibrant India Hackathon 2023 - Participant</h3>
+                </div>
+                <p class="achievement-description">
+                    Actively participated in developing innovative solutions for national challenges, showcasing technical expertise and problem-solving abilities.
+                </p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-header">
+                    <div class="star-icon achievement-icon"></div>
+                    <h3 class="achievement-title">Grand Challenge Contest 2024 – Participant</h3>
+                </div>
+                <p class="achievement-description">
+                    Designed advanced schematic and layout for Inverter Circuit and Battery Charging Circuit, demonstrating proficiency in power electronics design.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-underline"></div>
+            
+            <p class="contact-intro">
+                I'm always excited to discuss new opportunities, collaborate on innovative projects, or share insights about embedded hardware design and electric vehicle technologies!
+            </p>
+
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon email-icon">
+                        <span class="icon-email"></span>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:rthawani752@gmail.com">rthawani752@gmail.com</a>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon linkedin-icon">
+                        <span class="icon-briefcase"></span>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/raj-thawani-951a59223/" target="_blank">Connect with me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
